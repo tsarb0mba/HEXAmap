@@ -19,7 +19,7 @@ public class HexGrid : MonoBehaviour {
 
 	void Awake () {
 		gridCanvas = GetComponentInChildren<Canvas>();
-		hexMesh = GetComponent<HexMesh>();
+		hexMesh = GetComponentInChildren<HexMesh>();
 		cells = new HexCell[height * width];
 
 		for (int z = 0, i = 0; z < height; z++) {
