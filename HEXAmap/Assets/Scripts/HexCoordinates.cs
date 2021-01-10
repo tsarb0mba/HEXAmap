@@ -32,7 +32,6 @@ public class HexCoordinates
 	}
 
 	public override string ToString(){
-		Debug.Log(X.ToString() +","+ Z.ToString());
 		return "(" +
 			X.ToString()+", "+Y.ToString()+", "+Z.ToString()
 			+ ")";
