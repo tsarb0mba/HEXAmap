@@ -34,7 +34,7 @@ public class HexGrid : MonoBehaviour {
 		hexMesh.Triangulate(cells);
 	}
 
-	void ColorCell(Vector3 position, Color color){
+	public void ColorCell(Vector3 position, Color color){
 		position = transform.InverseTransformPoint(position);
 		HexCoordinates coordinates = HexCoordinates.FromPosition(position);
 
