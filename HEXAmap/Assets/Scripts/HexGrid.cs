@@ -51,6 +51,13 @@ public class HexGrid : MonoBehaviour {
 	void TouchCell(Vector3 position){
 		position = transform.InverseTransformPoint(position);
 		HexCoordinates coordinates = HexCoordinates.FromPosition(position);
+
+		//셀 특정(56~57), when touchedm change color to magenta(58)
+		int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
+		HexCell cell = cells[index];
+		cell.color = touchedColor;//magenta
+		hexMesh.Triangulate(cells);//draw and mesh
+
 		Debug.Log("touch at "+coordinates.ToString());
 	}
 
