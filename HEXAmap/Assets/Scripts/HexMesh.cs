@@ -41,7 +41,8 @@ public class HexMesh : MonoBehaviour {
 				center,
 				center + HexMetrics.corners[i],
 				center + HexMetrics.corners[i+1]
-				);			
+				);	
+			AddTriangleColor(cell.color);		
 		}
 		meshCollider.sharedMesh = hexMesh;
 	}
@@ -55,5 +56,11 @@ public class HexMesh : MonoBehaviour {
 		triangles.Add(vertexIndex);
 		triangles.Add(vertexIndex + 1);
 		triangles.Add(vertexIndex + 2);
+	}
+
+	void AddTriangleColor(Color color){
+		colors.Add(color);
+		colors.Add(color);
+		colors.Add(color);
 	}
 }
