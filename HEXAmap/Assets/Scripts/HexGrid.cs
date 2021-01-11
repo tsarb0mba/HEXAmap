@@ -12,6 +12,8 @@ public class HexGrid : MonoBehaviour {
 
 	public HexCell cellPrefab;
 	public Text cellLabelPrefab;
+	public Color defaultColor = Color.white;
+	public Color touchedColor = Color.magenta;
 
 	HexCell[] cells;
 	HexMesh hexMesh;
