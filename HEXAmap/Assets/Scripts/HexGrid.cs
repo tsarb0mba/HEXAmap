@@ -34,28 +34,14 @@ public class HexGrid : MonoBehaviour {
 		hexMesh.Triangulate(cells);
 	}
 
-	void Update(){
-		if(Input.GetMouseButton(0)){
-			HandleInput();
-		}
-	}
-
-	void HandleInput(){
-		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-		RaycastHit hit;
-		if(Physics.Raycast(inputRay,out hit)){
-			TouchCell(hit.point);
-		}
-	}
-
-	void TouchCell(Vector3 position){
+	public void ColorCell(Vector3 position, Color color){
 		position = transform.InverseTransformPoint(position);
 		HexCoordinates coordinates = HexCoordinates.FromPosition(position);
 
 		//셀 특정(56~57), when touchedm change color to magenta(58)
 		int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
 		HexCell cell = cells[index];
-		cell.color = touchedColor;//magenta
+		cell.color = color;//magenta
 		hexMesh.Triangulate(cells);//draw and mesh
 
 		Debug.Log("touch at "+coordinates.ToString());
