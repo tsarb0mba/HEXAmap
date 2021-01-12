@@ -14,7 +14,7 @@ public class HexCell : MonoBehaviour
 		return neighbors[(int)direction];
 	}
 
-	//when this func called, set the input direction neighbor and this opposite neighbor(line 20)
+	//cell a의 w가 b면,b의 e가 a라고 동시에 설정해줌.
 	public void SetNeighbor(HexDirection direction, HexCell cell){
 		neighbors[(int)direction] = cell;
 		cell.neighbors[(int)direction.Opposite()]=this;
