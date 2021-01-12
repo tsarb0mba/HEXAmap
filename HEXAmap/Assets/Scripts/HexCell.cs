@@ -14,6 +14,7 @@ public class HexCell : MonoBehaviour
 		return neighbors[(int)direction];
 	}
 
+	//when this func called, set the input direction neighbor and this opposite neighbor(line 20)
 	public void SetNeighbor(HexDirection direction, HexCell cell){
 		neighbors[(int)direction] = cell;
 		cell.neighbors[(int)direction.Opposite()]=this;
