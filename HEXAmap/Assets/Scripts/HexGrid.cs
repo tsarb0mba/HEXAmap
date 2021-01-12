@@ -65,6 +65,19 @@ public class HexGrid : MonoBehaviour {
 		if(x>0){ // cause x==0 mean it the frist member of the line, it don't have W neighbor
 			cell.SetNeighbor(HexDirection.W, cells[i-1]);
 		}
+		if(z>0){
+			if(z%2 ==0){
+				cell.SetNeighbor(HexDirection.SE,cells[i-width]);
+				if(x>0)
+					cell.SetNeighbor(HexDirection.SW,cells[i-width-1]);				
+			}
+			else{
+				cell.SetNeighbor(HexDirection.SW,cells[i-width]);
+				if(x<width-1){}
+					cell.SetNeighbor(HexDirection.SE,cells[i-width+1]);
+			}
+			
+		}
 
 		Text label = Instantiate<Text>(cellLabelPrefab);
 		label.rectTransform.SetParent(gridCanvas.transform, false);
