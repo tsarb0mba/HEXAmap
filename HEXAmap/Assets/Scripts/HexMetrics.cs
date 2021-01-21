@@ -21,7 +21,7 @@ public static class HexMetrics {
 	}
 
 	public static Vector3 GetSecondCorner(HexDirection direction){
-		return cornors[(int)direction];
+		return corners[(int)direction+1];
 	}
 
 }

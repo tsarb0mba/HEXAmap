@@ -44,8 +44,8 @@ public class HexMesh : MonoBehaviour {
 		Vector3 center = cell.transform.localPosition;
 		AddTriangle(
 			center,
-			center + HexMetrics.corners[i],
-			center + HexMetrics.corners[i+1]
+			center + HexMetrics.GetFirstCorner(direction),
+			center + HexMetrics.GetSecondCorner(direction)
 		);	
 		AddTriangleColor(cell.color);		
 	}
