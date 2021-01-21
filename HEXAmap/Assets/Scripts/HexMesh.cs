@@ -61,9 +61,9 @@ public class HexMesh : MonoBehaviour {
 		triangles.Add(vertexIndex + 2);
 	}
 
-	void AddTriangleColor(Color color){
-		colors.Add(color);
-		colors.Add(color);
-		colors.Add(color);
+	void AddTriangleColor(Color cr1, Color cr2, Color cr3){
+		colors.Add(cr1);
+		colors.Add(cr2);
+		colors.Add(cr3);
 	}
 }
