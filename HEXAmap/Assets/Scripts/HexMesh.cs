@@ -32,6 +32,7 @@ public class HexMesh : MonoBehaviour {
 		hexMesh.triangles = triangles.ToArray();
 		hexMesh.colors = colors.ToArray();
 		hexMesh.RecalculateNormals();
+		meshCollider.sharedMesh = hexMesh;
 	}
 
 	void Triangulate(HexCell cell){
@@ -46,9 +47,15 @@ public class HexMesh : MonoBehaviour {
 			center,
 			center + HexMetrics.GetFirstCorner(direction),
 			center + HexMetrics.GetSecondCorner(direction)
-		);	
+		);
+		HexCell prevNeighbor = cell.GetNeighbor(direction.Previous()) ?? cell;	
 		HexCell neighbor = cell.GetNeighbor(direction) ?? cell; // cause some cell don't have neighbor
-		AddTriangleColor(cell.color, neighbor.color,neighbor.color);		
+		HexCell nextNeighbor = cell.GetNeighbor(direction.Next()) ?? cell;
+		AddTriangleColor(
+			cell.color,
+			(cell.color + prevNeighbor.color + neighbor.color) / 3f,
+			(cell.color + neighbor.color + nextNeighbor.color) / 3f
+		);	
 	}
 
 
