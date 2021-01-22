@@ -45,7 +45,7 @@ public class HexMesh : MonoBehaviour {
 		Vector3 center = cell.transform.localPosition;
 		AddTriangle(
 			center,
-			center + HexMetrics.GetFirstSolidCorner(direction),
+			center + HexMetrics.GetFirestSolidCorner(direction),
 			center + HexMetrics.GetSecondSolidCorner(direction)
 		);
 		HexCell prevNeighbor = cell.GetNeighbor(direction.Previous()) ?? cell;	
@@ -76,7 +76,7 @@ public class HexMesh : MonoBehaviour {
 	}
 
 	//2-3-1 to blend triangulate region
-	void AddQuad(Vector3 v1, Vector3 v2, Vector3 v3){
+	void AddQuad(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4){
 		int vertexIndex = vertices.Count;
 		vertices.Add(v1);
 		vertices.Add(v2);
@@ -88,7 +88,7 @@ public class HexMesh : MonoBehaviour {
 		triangles.Add(vertexIndex+3);
 	}
 
-	void AddQuadColor(Color c1, Color c2, Color c3){
+	void AddQuadColor(Color c1, Color c2, Color c3, Color c4){
 		colors.Add(c1);
 		colors.Add(c2);
 		colors.Add(c3);
