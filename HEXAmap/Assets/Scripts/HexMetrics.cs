@@ -3,8 +3,11 @@ using UnityEngine;
 public static class HexMetrics {
 
 	public const float outerRadius = 10f;
-
 	public const float innerRadius = outerRadius * 0.866025404f;
+
+	//used to blend ragions
+	public const float solidFactor = 0.75f;
+	public const float blendFactor = 1f - solidFactor;
 
 	static Vector3[] corners = {
 		new Vector3(0f,0f,outerRadius),
